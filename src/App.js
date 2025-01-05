@@ -55,8 +55,8 @@ function App() {
     
     // Title and Header
        
-    const RealScoreLogo = await loadLogo("/image/RealScoreLogo.png");
-    const EquifaxLogo = await loadLogo("/image/EquifaxLogo.png")
+    const RealScoreLogo = await loadLogo("/generateCreditReport/image/RealScoreLogo.png");
+    const EquifaxLogo = await loadLogo("/generateCreditReport/image/EquifaxLogo.png")
 
     doc.setFontSize(18);
     doc.addImage(RealScoreLogo,"PNG",7,3,26,13);
@@ -305,7 +305,7 @@ return (
   <div className="app-container">
       {/* Logo */}
       <img
-          src="/image/RealScoreLogo.png"
+          src="/generateCreditReport/image/RealScoreLogo.png"
           alt="Real Score Logo"
           className="logo"
       />
