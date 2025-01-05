@@ -1,0 +1,179 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Root Variables */
+:root {
+  --primary-color: #004d40;
+  --secondary-color: #26a69a;
+  --background-gradient: linear-gradient(135deg, #e0f7fa, #f1f8e9);
+  --text-color: #333;
+  --font-family: 'Poppins', sans-serif;
+}
+
+/* General Container */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: var(--background-gradient);
+  font-family: var(--font-family);
+  text-align: center;
+  padding: 20px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+/* Logo */
+.logo {
+  width: 150px;
+  margin-bottom: 20px;
+  animation: pulse 2s infinite;
+}
+
+/* Pulse Animation for Logo */
+@keyframes pulse {
+  0%, 100% {
+      transform: scale(1);
+  }
+  50% {
+      transform: scale(1.1);
+  }
+}
+
+/* Title */
+.title {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  animation: slideIn 1s ease-in-out;
+}
+
+/* Slide-in Animation */
+@keyframes slideIn {
+  from {
+      transform: translateX(-50px);
+      opacity: 0;
+  }
+  to {
+      transform: translateX(0);
+      opacity: 1;
+  }
+}
+
+/* Text Field */
+.text-field {
+  width: 80%;
+  max-width: 600px;
+  height: 200px;
+  padding: 15px;
+  border: 2px solid var(--primary-color);
+  border-radius: 12px;
+  background-color: #ffffff;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--text-color);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+  resize: none;
+  transition: all 0.3s ease;
+}
+.text-field:focus {
+  border-color: var(--secondary-color);
+  box-shadow: 0px 6px 12px rgba(38, 166, 154, 0.5);
+  outline: none;
+  transform: scale(1.02);
+}
+
+/* Action Button */
+.action-button {
+  margin-top: 20px;
+  padding: 12px 30px;
+  font-size: 1.2rem;
+  color: #ffffff;
+  background: var(--primary-color);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+}
+.action-button:hover {
+  background: var(--secondary-color);
+  box-shadow: 0px 8px 16px rgba(38, 166, 154, 0.5);
+  transform: translateY(-3px);
+}
+.action-button:active {
+  transform: translateY(1px);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+.action-button:disabled {
+  background: #bdbdbd;
+  cursor: not-allowed;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .title {
+      font-size: 2rem;
+  }
+
+  .text-field {
+      width: 90%;
+      height: 150px;
+  }
+
+  .action-button {
+      font-size: 1rem;
+      padding: 10px 20px;
+  }
+}
