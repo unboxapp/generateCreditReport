@@ -6,6 +6,7 @@ import "jspdf-autotable";
 function App() {
   const [reportData, setreportData] = useState(null);
   const [inputValue, setInputValue] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const loadLogo = (path) => {
     return new Promise((resolve, reject) => {
@@ -29,6 +30,7 @@ function App() {
   };
 
   const downloadPDF = async() => {
+    setLoading(true);
     console.log(reportData);
     if (!reportData) {
       alert("Data not loaded. Please try again later.");
@@ -289,6 +291,7 @@ function App() {
   
     // Save PDF
     doc.save("Equifax_Credit_Report.pdf");
+    setLoading(false);
   };
 
   const handleInputChange = (e) => {
@@ -326,9 +329,13 @@ return (
       <button
           className="action-button"
           onClick={downloadPDF}
-          disabled={!reportData}
-      >
-          Generate PDF
+          disabled={!reportData|| loading}
+          >
+            {loading ? (
+              <span className="loader"></span> // Loader element
+            ) : (
+              "Generate PDF"
+            )}
       </button>
   </div>
 );
