@@ -73,6 +73,8 @@ function App() {
   
     let yPosition = 40; // Start position for the content
   
+    if(personalInfo!=null)
+    {
     // Personal Information
     doc.setFontSize(14);
     doc.text(`Consumer Name: ${personalInfo.name.fullName}`, 15, yPosition);
@@ -89,7 +91,9 @@ function App() {
       ],
       styles: { fontSize: 8, cellPadding: 4 },
     });
+
     yPosition = doc.autoTable.previous.finalY + 15;
+  
   
     // Address Information
     doc.setFontSize(14);
@@ -106,7 +110,10 @@ function App() {
         address.reportedDate,
       ]),
       styles: { fontSize: 8, cellPadding: 3 },
-    });
+    });}
+
+    if(scoreDetails!=null)
+    {
     yPosition = doc.autoTable.previous.finalY + 10;
   
     // Score Details
@@ -122,7 +129,9 @@ function App() {
         score.scoringElements.map((element) => element.description).join(", "),
       ]),
       styles: { fontSize: 8, cellPadding: 4 },
-    });
+    });}
+    if(recentActivities!=null)
+    {
     yPosition = doc.autoTable.previous.finalY + 15;
   
     // Recent Activities
@@ -150,6 +159,9 @@ function App() {
       ],
       styles: { fontSize: 8, cellPadding: 4 },
     });
+  }
+  if(retailAccountsSummary!=null)
+  {
     // Retail Account Summary
     
     doc.addPage();
@@ -175,7 +187,10 @@ function App() {
         ],
       ],
       styles: { fontSize: 7, cellPadding: 4 },
-    });
+    });}
+
+    if(retailAccountDetails!=null)
+    {
 
     //Retail Account Details
     doc.text("Retail Account Details:", 15, doc.autoTable.previous.finalY+10);
@@ -240,8 +255,9 @@ function App() {
                     styles: { fontSize: 7, cellPadding: 2 ,lineWidth: 0.1,lineColor: [0, 0, 0],},
                   });   
       }); 
-  });
-    
+  });}
+    if(enquirySummary!=null)
+    {
     yPosition = doc.autoTable.previous.finalY + 15;
   
     // Enquiry Summary
@@ -266,7 +282,9 @@ function App() {
       styles: { fontSize: 8, cellPadding: 4 },
     });
     yPosition = doc.autoTable.previous.finalY + 15;
-  
+  }
+  if(enquiries!=null)
+  {
     // Enquiries
     doc.setFontSize(14);
     if(yPosition>200)
@@ -287,7 +305,7 @@ function App() {
         enquiry.amount,
       ]),
       styles: { fontSize: 8, cellPadding: 4 },
-    });
+    });}
   
     // Save PDF
     doc.save("Equifax_Credit_Report.pdf");
